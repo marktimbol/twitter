@@ -35,8 +35,14 @@ class UserRepository {
 
 	public function following()
 	{
-		$following = $this->currentUser->follows()->pluck('followed_id');
+		$following = User::following();
 		return User::whereIn('id', $following)->get();
+	}
+
+	public function followers()
+	{
+		$followers = User::followers();
+		return User::whereIn('id', $followers)->get();
 	}
 
 	public function isFollowing(User $user)

@@ -8,9 +8,9 @@
             </div>
 
             <div class="col-md-6">
-                <h2>Following</h2>
+                <h2>Followers</h2>
 
-                @foreach( $following as $user )
+                @foreach( $followers as $user )
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <div class="UserCard__bg"></div>
                         <div class="UserCard Box">

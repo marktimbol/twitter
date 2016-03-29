@@ -24,13 +24,17 @@
                         </li>
 
                         <li class="UserCard__stat">
-                            <span class="UserCard__stat--label">Following</span>
-                            <span class="UserCard__stat--value">{{ $user->following()->count() }}</span>
+                            <a href="{{ route('following', $user->username) }}">
+                                <span class="UserCard__stat--label">Following</span>
+                                <span class="UserCard__stat--value">{{ $user->following()->count() }}</span>
+                            </a>
                         </li>
 
                         <li class="UserCard__stat">
-                            <span class="UserCard__stat--label">Followers</span>
-                            <span class="UserCard__stat--value">{{ $user->followers()->count() }}</span>
+                            <a href="{{ route('followers', $user->username) }}">
+                                <span class="UserCard__stat--label">Followers</span>
+                                <span class="UserCard__stat--value">{{ $user->followers()->count() }}</span>
+                            </a>
                         </li>
                     </ul>
                 </div>  
@@ -95,12 +99,10 @@
                                                     <i class="fa fa-ellipsis-h"></i>
                                                 </a>
                                             </li>
-
                                         </ul>
                                     </div>
-
                                 </div>
-							
+                            </div>
 						</li>
 					@endforeach
 				</ul>	
@@ -122,8 +124,10 @@
                                 </div>
                                 <div class="Media__content">
                                     <div class="Media__header">
-                                        <h3 class="Media__header--name">{{ $user->name }}</h3>
-                                        <small class="Media__header--username">{{ '@'.$user->username }}</small>
+                                        <a href="#">
+                                            <strong class="Media__header--name">{{ $user->name }}</strong> 
+                                            <small class="Media__header--username">{{ '@'.$user->username }}</small>
+                                        </a>
                                     </div>
                                     <form method="POST" action="{{ route('follow') }}">
                                         {{ csrf_field() }}

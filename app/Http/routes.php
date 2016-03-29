@@ -23,7 +23,15 @@ Route::group(['middleware' => ['web']], function () {
 	]);
 
     Route::get('{username}', 'UsersController@profile');
-    Route::get('{username}/following', 'UsersController@following');
+    Route::get('{username}/following', [
+        'as' => 'following', 
+        'uses' => 'UsersController@following'
+    ]);
+
+    Route::get('{username}/followers', [
+        'as' => 'followers', 
+        'uses' => 'UsersController@followers'
+    ]);
 
     Route::post('follow', [
     	'as' => 'follow', 

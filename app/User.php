@@ -40,15 +40,15 @@ class User extends Authenticatable
         return $this->belongsToMany(User::class, 'follows', 'follower_id', 'followed_id');
     }
 
-    public function followers()
+    public static function followers()
     {
         $user = Auth::user();
-        $following = $user->follows()->pluck('follower_id');
+        $followers = $user->follows()->pluck('follower_id');
 
-        return self::whereIn('id', $following)->get();
+        return self::whereIn('id', $followers)->get();
     }
 
-    public function following()
+    public static function following()
     {
         $user = Auth::user();
         $following = $user->follows()->pluck('followed_id');

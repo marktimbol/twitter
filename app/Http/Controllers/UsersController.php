@@ -24,7 +24,15 @@ class UsersController extends Controller
 
     public function following()
     {
-    	$users = $this->user->following();
-    	return view('users.following', compact('users'));
+    	$following = $this->user->following();        
+    	return view('users.following', compact('following'));
+    }
+
+    public function followers()
+    {
+        $followers = $this->user->followers();    
+        dd($followers);
+        
+        return view('users.followers', compact('followers'));
     }
 }
