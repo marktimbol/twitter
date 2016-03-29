@@ -1,0 +1,52 @@
+
+.Media {
+	display: flex;
+}
+
+.Media__figure {
+	margin-right: 1em;
+}
+
+.Media__figure img {
+	border-radius: 5px;
+}
+
+.Media__header--name {
+	font-size: 14px;
+	color: #292f33;
+	margin: 0;
+	text-transform: uppercase;
+}
+
+.Media__header--username {
+	font-size: 13px;
+	color: #8899a6;
+}
+
+.Media__header--time {
+	font-size: 13px;
+	color: #8899a6;
+}
+
+.Media__content {
+	flex: 1;
+
+	form {
+		margin-top: 10px;
+	}
+
+	p {
+		font-size: 14px;
+	}
+
+}
+
+.Media__footer--action {
+	flex: 1;
+}
+
+.Media__footer--action i {
+	font-size: 16px;
+	color: #aab8c2;
+}
+

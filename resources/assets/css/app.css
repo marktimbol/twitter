@@ -1,0 +1,122 @@
+body {
+  background: #f5f8fa; }
+
+.flexRow {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row; }
+
+.Box {
+  padding: 10px;
+  background: white;
+  border-radius: 5px;
+  border: 1px solid #e1e8ed; }
+
+.UserCard__bg {
+  height: 95px;
+  background: #0084b4;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; }
+
+.UserCard__avatar {
+  margin-right: 10px;
+  margin-top: -40px; }
+
+.UserCard__names {
+  margin-top: -22px; }
+
+.UserCard__name {
+  font-size: 18px; }
+
+.UserCard__username {
+  color: #66757f; }
+
+.UserCard__stats {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 15px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row; }
+
+.UserCard__stat {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1; }
+
+.UserCard__stat--label {
+  color: #8899a6;
+  font-size: 10px;
+  display: block;
+  text-transform: uppercase; }
+
+.UserCard__stat--value {
+  font-size: 18px;
+  color: #0084B4; }
+
+.Media {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+.Media__figure {
+  margin-right: 1em; }
+
+.Media__figure img {
+  border-radius: 5px; }
+
+.Media__header--name {
+  font-size: 14px;
+  color: #292f33;
+  margin: 0;
+  text-transform: uppercase; }
+
+.Media__header--username {
+  font-size: 13px;
+  color: #8899a6; }
+
+.Media__header--time {
+  font-size: 13px;
+  color: #8899a6; }
+
+.Media__content {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1; }
+  .Media__content form {
+    margin-top: 10px; }
+  .Media__content p {
+    font-size: 14px; }
+
+.Media__footer--action {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1; }
+
+.Media__footer--action i {
+  font-size: 16px;
+  color: #aab8c2; }
+
+.Tweets.Box {
+  padding: 0; }
+
+.Tweet {
+  padding: 15px 10px;
+  border-bottom: 1px solid #e1e8ed; }
+
+.WhoToFollow__title {
+  font-size: 18px;
+  color: #66757f;
+  font-weight: normal;
+  margin-bottom: 20px; }
+
+.UsersToFollow li {
+  margin-bottom: 10px; }
+
+/*# sourceMappingURL=app.css.map */

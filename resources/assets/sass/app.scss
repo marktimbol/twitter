@@ -1,0 +1,31 @@
+//app.scss
+
+body {
+	background: #f5f8fa;
+}
+
+.flexRow {
+	display: flex;
+	flex-direction: row;
+}
+
+.Box {
+	padding: 10px;
+	background: white;
+	border-radius: 5px;
+	border: 1px solid #e1e8ed;
+}
+
+@import 'components/UserCard';
+@import 'components/Media';
+@import 'components/Tweets';
+@import 'components/UsersToFollow';
+
+
+
+
+
+
+
+
+
