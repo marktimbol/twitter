@@ -23,6 +23,7 @@ Route::group(['middleware' => ['web']], function () {
 	]);
 
     Route::get('{username}', 'UsersController@profile');
+    
     Route::get('{username}/following', [
         'as' => 'following', 
         'uses' => 'UsersController@following'
@@ -31,6 +32,11 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('{username}/followers', [
         'as' => 'followers', 
         'uses' => 'UsersController@followers'
+    ]);
+
+    Route::get('who-to-follow/suggestions', [
+        'as' => 'peopleToFollow', 
+        'uses' => 'UsersController@peopleToFollow'
     ]);
 
     Route::post('follow', [

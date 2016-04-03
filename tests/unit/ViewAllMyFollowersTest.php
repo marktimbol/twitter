@@ -19,9 +19,9 @@ class ViewAllMyFollowersTest extends TestCase
     	$bar = factory(App\User::class)->create();
     	$baz = factory(App\User::class)->create();
 
-    	$foo->follows()->attach($mark->id);
-    	$bar->follows()->attach($mark->id);
-    	$baz->follows()->attach($mark->id);
+    	$foo->following()->attach($mark->id);
+    	$bar->following()->attach($mark->id);
+    	$baz->following()->attach($mark->id);
 
     	$this->visit('/MarkTimbol/followers')
     		->see($foo->name)

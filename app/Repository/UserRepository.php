@@ -18,31 +18,38 @@ class UserRepository {
 		return User::whereUsername($username)->first();
 	}
 
-	public function peopleToFollow()
+	public function getPeopleToFollow()
 	{
-		return User::where('id', '!=', $this->currentUser->id)->take(10)->get();
+		$peopleIFollow = $this->currentUser->following()->pluck('followed_id');
+		$peopleIFollow = $peopleIFollow->push($this->currentUser->id)->all();
+
+		return User::whereNotIn('id', $peopleIFollow)
+					->paginate(15);
 	}
 
 	public function follow($user_id)
 	{
-		return $this->currentUser->follows()->attach($user_id);
+		return $this->currentUser->following()->attach($user_id);
 	}
 
 	public function unfollow($user_id)
 	{
-		return $this->currentUser->follows()->detach($user_id);
+		return $this->currentUser->following()->detach($user_id);
 	}
 
-	public function following()
+	public function getThePeopleIFollow()
 	{
-		$following = User::following();
-		return User::whereIn('id', $following)->get();
+        $ids = $this->currentUser->following()->pluck('followed_id');
+        return User::whereIn('id', $ids)->get();
 	}
 
-	public function followers()
+	public function getFollowers()
 	{
-		$followers = User::followers();
-		return User::whereIn('id', $followers)->get();
+        $ids = $this->currentUser->followers()->pluck('follower_id');
+
+        return User::where('id', '!=', $this->currentUser->id)
+                    ->whereIn('id', $ids)
+                    ->get();
 	}
 
 	public function isFollowing(User $user)

@@ -24,8 +24,7 @@ class HomeController extends Controller
         if( Auth::check() )
         {
             $user = Auth::user();
-            $peopleToFollow = $this->user->peopleToFollow();
-
+            $peopleToFollow = $this->user->getPeopleToFollow();
             $tweets = $this->tweet->getFollowingUsersTweets();
             
             return view('users.index', compact('user', 'tweets', 'peopleToFollow'));

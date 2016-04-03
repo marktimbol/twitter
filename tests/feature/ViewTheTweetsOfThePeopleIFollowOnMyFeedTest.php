@@ -32,8 +32,8 @@ class ViewTheTweetsOfThePeopleIFollowOnMyFeedTest extends TestCase
     		'body'	=> 'Superman Tweet'
     	]);
 
-    	$john->follows()->attach($batman->id);
-    	$john->follows()->attach($superman->id);
+    	$john->following()->attach($batman->id);
+    	$john->following()->attach($superman->id);
 
     	$this->visit('/')
     		->see('John Tweet')

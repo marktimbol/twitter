@@ -4,40 +4,7 @@
 	<div class="container">
         <div class="row">
             <div class="col-md-3">
-                <div class="UserCard__bg"></div>
-                <div class="UserCard Box">
-                    <div class="flexRow">
-                        <div class="UserCard__avatar">
-                            <img src="{{ asset('images/avatar.jpeg') }}" alt="{{ $user->name }}" title="{{ $user->name }}" class="img-thumbnail" />
-                        </div>
-
-                        <div class="UserCard__names">
-                            <h2 class="UserCard__name">{{ $user->name }}</h2>
-                            <small class="UserCard__username">{{ '@'.$user->username }}</small>
-                        </div>
-                    </div>
-
-                    <ul class="UserCard__stats">
-                        <li class="UserCard__stat">
-                            <span class="UserCard__stat--label">Tweets</span>
-                            <span class="UserCard__stat--value">{{ $user->tweets->count() }}</span>
-                        </li>
-
-                        <li class="UserCard__stat">
-                            <a href="{{ route('following', $user->username) }}">
-                                <span class="UserCard__stat--label">Following</span>
-                                <span class="UserCard__stat--value">{{ $user->following()->count() }}</span>
-                            </a>
-                        </li>
-
-                        <li class="UserCard__stat">
-                            <a href="{{ route('followers', $user->username) }}">
-                                <span class="UserCard__stat--label">Followers</span>
-                                <span class="UserCard__stat--value">{{ $user->followers()->count() }}</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>  
+                @include('users._current-user-info')
             </div>
 
             <div class="col-md-6">
@@ -106,11 +73,15 @@
 						</li>
 					@endforeach
 				</ul>	
+
+                {!! $tweets->render() !!}
             </div>
 
             <div class="col-md-3">
                 <div class="WhoToFollow Box">
-                    <h4 class="WhoToFollow__title">Who to follow</h4>
+                    <h4 class="WhoToFollow__title">Who to follow 
+                        <small><a href="{{ route('peopleToFollow') }}">View all</a></small>
+                    </h4>
                     <ul class="UsersToFollow list-unstyled">
                         @foreach( $peopleToFollow as $user )
                         <li>

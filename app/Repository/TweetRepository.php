@@ -18,10 +18,13 @@ class TweetRepository {
 	 */
 	public function getFollowingUsersTweets()
 	{
-		$ids = $this->currentUser->follows()->pluck('followed_id');
+		$ids = $this->currentUser->following()->pluck('followed_id');
 		$ids->push($this->currentUser->id);
 		
-		return Tweet::with('user')->whereIn('user_id', $ids)->latest()->get();
+		return Tweet::with('user')
+					->whereIn('user_id', $ids)
+					->latest()
+					->paginate(10);
 	}
 
 }

@@ -30,29 +30,18 @@ class User extends Authenticatable
         return $this->hasMany(Tweet::class);
     }
 
-    public static function findByUsername($username)
-    {
-        return self::whereUsername($username)->first();
-    }
-
-    public function follows()
+    public function following()
     {
         return $this->belongsToMany(User::class, 'follows', 'follower_id', 'followed_id');
     }
 
-    public static function followers()
+    public function followers()
     {
-        $user = Auth::user();
-        $followers = $user->follows()->pluck('follower_id');
-
-        return self::whereIn('id', $followers)->get();
+        return $this->belongsToMany(User::class, 'follows', 'followed_id', 'follower_id');
     }
 
-    public static function following()
+    public static function findByUsername($username)
     {
-        $user = Auth::user();
-        $following = $user->follows()->pluck('followed_id');
-
-        return self::whereIn('id', $following)->get();
+        return self::whereUsername($username)->first();
     }
 }

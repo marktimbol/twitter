@@ -121,4 +121,8 @@ body {
 .UsersToFollow li {
   margin-bottom: 10px; }
 
+@media screen and (min-width: 1236px) {
+  .container {
+    max-width: 1190px; } }
+
 /*# sourceMappingURL=app.css.map */

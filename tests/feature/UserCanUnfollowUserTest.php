@@ -20,7 +20,7 @@ class UserCanUnfollowUserTest extends TestCase
 
     	$this->actingAs($mark);
 
-    	$mark->follows()->attach($joan->id);
+    	$mark->following()->attach($joan->id);
 
     	$this->visit('JoanRomeroso')
     		->press('Unfollow')
